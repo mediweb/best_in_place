@@ -55,6 +55,7 @@ module BestInPlace
       out << " data-html-attrs='#{opts[:html_attrs].to_json}'" unless opts[:html_attrs].blank?
       out << " data-original-content='#{attribute_escape(real_object.send(field))}'" if opts[:display_as] || opts[:display_with]
       out << " data-value='#{attribute_escape(value)}'" if value
+      out << " data-cancel-on-blur='#{opts[:cancel_on_blur]}'" if !opts[:cancel_on_blur].nil?
 
       if opts[:data] && opts[:data].is_a?(Hash)
         opts[:data].each do |k, v|
